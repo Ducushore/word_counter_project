@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CountPage</title>
+    </head>
+
+    <body>
+        <form action="{% url 'home' %}">
+            <input type="submit" value="Home"/>
+        </form>
+
+        <h1>COUNTING Result :</h1>
+        <h3>>>>>>>>>>> There are {{ count }} words in your text.</h3>
+
+{#        <a href="{% url 'home' %}">Start Again</a>#}
+
+        <form action="{% url 'home' %}">
+            <input type="submit" value="Start Again"/>
+        </form>
+
+        <h2>This is the TEXT reviewed :</h2>
+        {{ fulltext }}
+
+        <h2>Word Count Review :</h2>
+{#        {{ wordcountdictionary }}  # Variant ONE - returning a DICTIONARY#}
+
+        {% for word, countbyword in sortedwordcountdictionary %}  {# # Variant TWO - returning a SORTED, by key value, DICTIONARY #}
+            {{ word }} = {{ countbyword }};<br />
+        {% endfor %}
+
+    </body>
+</html>
